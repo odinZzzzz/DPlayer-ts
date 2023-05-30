@@ -1,7 +1,7 @@
 import {htmlEncode} from "../utils/dan_util";
 const Router = require('koa-router');
 const cheerio = require('cheerio')
-import fetch = require('node-fetch');
+const fetch = require('node-fetch');
 export const routerV3 = new Router();
 
 routerV3.get('/v3', async (ctx, next) => {

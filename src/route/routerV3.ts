@@ -1,4 +1,5 @@
 import {htmlEncode} from "../utils/dan_util";
+
 const Router = require('koa-router');
 const cheerio = require('cheerio')
 const fetch = require('node-fetch');
@@ -77,8 +78,7 @@ routerV3.get('/v3/bilibili', async (ctx, next) => {
             let type = 0;
             if (p[1] === '4') {
                 type = 2;
-            }
-            else if (p[1] === '5') {
+            } else if (p[1] === '5') {
                 type = 1;
             }
             return [[parseFloat(p[0]), type, parseInt(p[3]), p[6], item.text()]];

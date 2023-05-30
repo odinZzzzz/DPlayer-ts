@@ -25,8 +25,10 @@
     "noImplicitThis": false,
     //"sourceMap": true,
     "inlineSourceMap": true,
-    "noUnusedLocals": false, // 检查只声明、未使用的局部变量(只提示不报错)
-    "noUnusedParameters": false, // 检查未使用的函数参数(只提示不报错)
+    "noUnusedLocals": false,
+    // 检查只声明、未使用的局部变量(只提示不报错)
+    "noUnusedParameters": false,
+    // 检查未使用的函数参数(只提示不报错)
     //用于debug
 
     "rootDirs": [
@@ -47,6 +49,5 @@
   "exclude": [
     "./dist/**/*.*",
     "./app/node_modules/**/*.*"
-
   ]
 }

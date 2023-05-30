@@ -1,4 +1,4 @@
-export function htmlEncode (str) {
+export function htmlEncode(str) {
     return str ? str.replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')

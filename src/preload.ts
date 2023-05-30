@@ -31,12 +31,14 @@ export function preload() {
         console.warn(reason?.stack);
     });
 }
-function initLog4js(){
+
+function initLog4js() {
     configure({
         appenders: {
-            fileout: { type: "file", filename: `./logs/info.log`
+            fileout: {
+                type: "file", filename: `./logs/info.log`
                 ,
-                "maxLogSize": 1048576*4,
+                "maxLogSize": 1048576 * 4,
                 "backups": 7,
                 layout: {
                     type: "pattern",
@@ -52,16 +54,16 @@ function initLog4js(){
                     pattern: `%[[%f{1}] [%d] [%p]%] %m`,
                 },
             },
-            consoleout: { type: "console" },
+            consoleout: {type: "console"},
         },
         categories: {
-            default: { appenders: ["fileout", "datafileout"],level: config.logLevel ,enableCallStack: true},
+            default: {appenders: ["fileout", "datafileout"], level: config.logLevel, enableCallStack: true},
 
         },
     });
 
 
-    const logger = getLogger( "console");
+    const logger = getLogger("console");
     console.debug = logger.debug.bind(logger);
     console.log = logger.debug.bind(logger);
     console.info = logger.info.bind(logger);

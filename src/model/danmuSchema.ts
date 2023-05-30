@@ -30,7 +30,6 @@ interface IDan extends Document {
 }
 
 
-
 export const initMongo = async () => {
     let db_url = ""
     let db_config = config.db.mongo;

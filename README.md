@@ -1,6 +1,8 @@
 # DPlayer ts 弹幕库
 
 > 弹幕库 for [DPlayer](https://github.com/DIYgod/DPlayer)
+> 只用了mongo 暂未使用redis
+> 弃用了docker
 
 ## 使用方法
 
@@ -18,7 +20,6 @@ cd dist & pm2 start index //启动方式2 持久化
 ### 配置文件
 
 > src/config.ts
-
 
 ## Ts版本源自
 

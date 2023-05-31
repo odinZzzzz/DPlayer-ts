@@ -17,7 +17,7 @@ routerV3.get('/v3', async (ctx, next) => {
         ctx.response.set('X-Koa-Redis', 'true');
     } else {
         data = await ctx.mongodb.find({player: id}) || [];
-        // ctx.redis.set(`danmaku${id}`, JSON.stringify(data));
+        ctx.redis?.set(`danmaku${id}`, JSON.stringify(data));
         if (limit) {
             data = data.slice(-1 * parseInt(limit));
         }
@@ -40,7 +40,7 @@ routerV3.post('/v3', async (ctx, next) => {
             code: 0,
             data,
         });
-        ctx.redis.del(`danmaku${data.player}`);
+        ctx.redis?.del(`danmaku${data.player}`);
     } catch (err) {
         console.error(err);
         ctx.body = JSON.stringify({

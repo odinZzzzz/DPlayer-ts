@@ -22,6 +22,12 @@ cd dist && pm2 start index //启动方式2 持久化
 
 > src/config.ts
 
+### bili额外弹幕
+> /v3/bilibili?bvid=BVq1w2we3r4 \
+/v3/bilibili?cid=12345678
+
+
+
 ## DPlayer-node 的Ts版本方便魔改 哈哈哈 
 
 [DPlayer-node ©](https://github.com/MoePlayer/DPlayer-node)

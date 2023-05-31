@@ -2,7 +2,7 @@ import mongoose, {Schema, InferSchemaType} from 'mongoose';
 import {config} from "../config";
 
 const danSchema = new Schema<IDan>({
-    player: {
+    id: {
         type: String,
         index: true,
     },
@@ -18,7 +18,7 @@ const danSchema = new Schema<IDan>({
 
 // type dan = InferSchemaType<typeof danSchema>;
 interface IDan {
-    player: string;
+    id: string;
     author: number;
     time: number;
     text: string;

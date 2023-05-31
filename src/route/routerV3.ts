@@ -16,7 +16,7 @@ routerV3.get('/v3', async (ctx, next) => {
         }
         ctx.response.set('X-Koa-Redis', 'true');
     } else {
-        data = await ctx.mongodb.find({player: id}) || [];
+        data = await ctx.mongodb.find({id: id}) || [];
         ctx.redis?.set(`danmaku${id}`, JSON.stringify(data));
         if (limit) {
             data = data.slice(-1 * parseInt(limit));
@@ -30,9 +30,9 @@ routerV3.get('/v3', async (ctx, next) => {
 });
 routerV3.post('/v3', async (ctx, next) => {
     const body = ctx.request.body;
-    body.ip = ctx.ips[0] || ctx.ip
-    body.referer = ctx.headers.referer
-    body.date = +new Date()
+    body.ip = ctx.ips[0] || ctx.ip;
+    body.referer = ctx.headers.referer;
+    body.date = Date.now();
     const dan = new ctx.mongodb(body);
     try {
         const data = await dan.save();

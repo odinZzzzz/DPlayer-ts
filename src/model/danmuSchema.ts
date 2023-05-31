@@ -1,7 +1,7 @@
-import mongoose, {Schema, model, Document} from 'mongoose';
+import mongoose, {Schema, InferSchemaType} from 'mongoose';
 import {config} from "../config";
 
-const danSchema = new mongoose.Schema({
+const danSchema = new Schema<IDan>({
     player: {
         type: String,
         index: true,
@@ -16,7 +16,8 @@ const danSchema = new mongoose.Schema({
     date: Number,
 });
 
-interface IDan extends Document {
+// type dan = InferSchemaType<typeof danSchema>;
+interface IDan {
     player: string;
     author: number;
     time: number;
@@ -38,7 +39,6 @@ export const initMongo = async () => {
         db_url = `mongodb://${db_config.username}:${db_config.password}@${db_config.host}:${db_config.port}/dan_mongo`;
         db_option = {
             useNewUrlParser: true,
-            // useCreateIndex: true,
             useUnifiedTopology: true,
             authSource: 'admin'
 
@@ -50,7 +50,6 @@ export const initMongo = async () => {
         db_url = `mongodb://${db_config.host}:${db_config.port}/dan_mongo`;
         db_option = {
             useNewUrlParser: true,
-            // useCreateIndex: true,
             useUnifiedTopology: true,
         };
     }
@@ -63,7 +62,7 @@ export const initMongo = async () => {
     db.once('open', () => {
         console.info('Mongodb connected');
     });
-    return db.model<IDan>('dan', danSchema);
+    return db.model('dan', danSchema);
 
 
 }

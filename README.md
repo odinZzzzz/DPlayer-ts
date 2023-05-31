@@ -10,12 +10,12 @@
 ### 快速开始
 
 ```shell
-npm install  //安装依赖
+npm install  //安装依赖 淘宝镜像 --registry=https://registry.npmmirror.com/
 npm run build //编译
 
-cd dist & node index  //启动方式1
+cd dist && node index  //启动方式1
 //或
-cd dist & pm2 start index //启动方式2 持久化
+cd dist && pm2 start index //启动方式2 持久化
 ```
 
 ### 配置文件
